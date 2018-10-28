@@ -60,11 +60,13 @@ public class Contenedor {
 		//Cuando llega a este punto es el que el dato ha sido almacenado
 		//El consumidor puede extraer el dato
 		existeDato = false;
-		System.out.println("Consumidor. get: " + this.dato);
+		int valorConsumido = this.dato;
+		this.dato = 0; //Se simula que se vacía el dato
+		System.out.println("Consumidor. get: " + valorConsumido);
 
 		// Se notifica de que el Consumidor ha extraído el dato
 		notifyAll();
-		return dato;
+		return valorConsumido;
 	}
 
 }
